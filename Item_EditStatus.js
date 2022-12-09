@@ -19,3 +19,8 @@ function ItemEdit (ItemId,EditStatus,Num)
 		toDrop.setMad(EditStatus["魔攻"] || toDrop.getMad());
 		
 	}
+
+/*
+script practice
+learn from 52hz's script
+*/
