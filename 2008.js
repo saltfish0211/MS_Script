@@ -20,9 +20,9 @@ function action(mode,type,selection)
   if(status == 0){
     cm.sendNext("你需要我幫你傳送到自由市場之後並領取新手禮包就點下一頁");
   }else if(status == 1){
-    cm.sendok("高歌離席~")
-    cm.warp()
-    dm.gainitem()
-    cm.setlevel()
+    cm.sendok("高歌離席~");
+    cm.warp();
+    dm.gainitem();
+    cm.setlevel();
     cm.dispose();
   }
