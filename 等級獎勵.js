@@ -32,8 +32,8 @@ function start () {
             case 0:
                 if(PlayerLevel < 10){
                     text = WLevel
-                }else if(PlayerLevel > 10 && 條件){//需要想一個條件來避免重複領取
-
+                }else if(PlayerLevel > 10 && cm.getaddpqlog("10等獎勵") == 0){//需要想一個條件來避免重複領取
+                    cm.gainitem();
                 }else{
                     text = RMessage
                 }
