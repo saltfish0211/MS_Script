@@ -1,4 +1,4 @@
-function ItemEdit (ItemId,EditStatus,Num)
+function ItemEdit (ItemId,EditStatus,Num){
 	if (ItemId > 0 && Num != 0){	//這裡if篩選可以擋掉沒寫物品id和數量不為0的情況,但是不知道數量為負數時如何運作
 		var info = cm.getItemInfo();
 		var toDrop = info.getEquipById(ItemId).copy();//copy是為了修改副本避免全部一起改掉?,而且也不清楚為什麼是先獲得物品訊息再取得物品id
@@ -19,7 +19,7 @@ function ItemEdit (ItemId,EditStatus,Num)
 		toDrop.setMad(EditStatus["魔攻"] || toDrop.getMad());
 		
 	}
-
+}
 /*
 script practice
 learn from 52hz's script
