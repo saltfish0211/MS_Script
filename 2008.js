@@ -11,8 +11,8 @@ function start(){
   action(1,0,0);
 }
 
-function action(mode,type,selection)
-  if (mdoe == 1){
+function action(mode,type,selection){
+  if (mode == 1){
     status++;
   }else{
   status--;
@@ -20,9 +20,10 @@ function action(mode,type,selection)
   if(status == 0){
     cm.sendNext("你需要我幫你傳送到自由市場之後並領取新手禮包就點下一頁");
   }else if(status == 1){
-    cm.sendok("高歌離席~");
+    cm.sendOk("高歌離席~");
     cm.warp();
-    dm.gainitem();
-    cm.setlevel();
+    dm.gainItem();
+    cm.setLevel();
     cm.dispose();
   }
+}
