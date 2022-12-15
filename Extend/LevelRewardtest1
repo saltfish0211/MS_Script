@@ -8,6 +8,13 @@ function action (mode,type,selection){
   if(mode == 1){
     status++;
   }else{
-    dispose();
+    cm.dispose();
+  }
+  if(status == 0){
+    cm.sendOk("NPC式腳本ok");
+  }else if(status == 1){
+    cm.sendOk("這次是第二次,等等會關閉");
+  }else{
+    cm.dispose();
   }
 }
