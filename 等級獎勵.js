@@ -19,10 +19,6 @@ function start () {
         text += "#d#e                等級獎勵" + rn;
         text += "" + c + "#b#e#L2# 10等獎勵" + rn;
         text += "" + c + "#b#e#L2# 30等獎勵" + rn;
-        text += "" + c + "#b#e#L2# 60等獎勵" + rn;
-        text += "" + c + "#b#e#L2# 100等獎勵" + rn;
-        text += "" + c + "#b#e#L2# 140等獎勵" + rn;
-        text += "" + c + "#b#e#L2# 200等獎勵" + rn;
         cm.sendsimple(text);
     }else if(status == 1){
         selectionNode = selection
