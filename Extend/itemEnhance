@@ -1,0 +1,33 @@
+var status ;
+
+function start(){
+  status = -1;
+  action(1,0,0);
+}
+
+function action(mode,type,selection){
+  var text ="";
+  var itemmes= ["裝備強化石系統,請選擇使用的石頭種類/r/n",
+  "#L0#+10強化石#l",
+  "#L1#+15強化石#l",
+  "#L2#+20強化石#l",
+  "#L3#+30強化石#l"
+  ]
+  if(mode == 1){
+    status++;
+  }else if(mode == 0){
+    status = 0;
+  }else{
+    cm.dispose();
+  }
+  
+  for(i=0,itemmes.len,i++){
+    text += itemEnhance[i];
+  }
+  cm.sendOk(text);
+  break;
+  switch(selection){
+    case 0:
+     cm.sendGetNumber("請輸入使用數量","1","1","99");
+  }
+}
