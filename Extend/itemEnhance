@@ -60,7 +60,7 @@ function action(mode,type,selection){
     if(itemenh == null){
       cm.sendOk("裝備第一格為空喔");
       cm.dispose();
-    }else{
+    }else if(cm.haveItem(itemsel,itemnum == true)){
       var toDrop = itemenh.copy();
       toDrop.setStr(toDrop.getStr()+itemstatus*itemnum);
       toDrop.setDex(toDrop.getDex()+itemstatus*itemnum);
@@ -70,6 +70,9 @@ function action(mode,type,selection){
       cm.gainItem(itemsel,itemnum);
       cm.gainItem(itemid,-1);
       cm.sendOk("強化完成");
+      cm.dispose();
+    }else{
+      cm.sendOk("你數量484亂填");
       cm.dispose();
     }
   }
