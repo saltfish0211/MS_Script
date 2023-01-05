@@ -5,7 +5,7 @@ var itemenh ;
 var itemstatus ;
 var itemid ;
 var text ="";
-var itemmes= ["裝備強化石系統,請選擇使用的石頭種類/r/n",
+var itemmes= ["裝備強化石系統,請選擇使用的石頭種類\r\n\r\n",
 "#L0#+10強化石#l",
 "#L1#+15強化石#l",
 "#L2#+20強化石#l",
