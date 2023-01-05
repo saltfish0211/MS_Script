@@ -60,7 +60,7 @@ function action(mode,type,selection){
     if(itemenh == null){
       cm.sendOk("裝備第一格為空喔");
       cm.dispose();
-    }else if(cm.haveItem(itemsel,itemnum == true)){
+    }else if(cm.haveItem(itemsel,itemnum) == true){
       var toDrop = itemenh.copy();
       toDrop.setStr(toDrop.getStr()+itemstatus*itemnum);
       toDrop.setDex(toDrop.getDex()+itemstatus*itemnum);
