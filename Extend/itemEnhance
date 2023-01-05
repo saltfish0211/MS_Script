@@ -1,4 +1,16 @@
 var status ;
+var itemsel ;
+var itemnum ;
+var itemenh ;
+var itemstatus ;
+var itemid ;
+var text ="";
+var itemmes= ["裝備強化石系統,請選擇使用的石頭種類/r/n",
+"#L0#+10強化石#l",
+"#L1#+15強化石#l",
+"#L2#+20強化石#l",
+"#L3#+30強化石#l"
+];
 
 function start(){
   status = -1;
@@ -6,28 +18,60 @@ function start(){
 }
 
 function action(mode,type,selection){
-  var text ="";
-  var itemmes= ["裝備強化石系統,請選擇使用的石頭種類/r/n",
-  "#L0#+10強化石#l",
-  "#L1#+15強化石#l",
-  "#L2#+20強化石#l",
-  "#L3#+30強化石#l"
-  ]
   if(mode == 1){
     status++;
-  }else if(mode == 0){
-    status = 0;
   }else{
     cm.dispose();
   }
   
-  for(i=0,itemmes.len,i++){
-    text += itemEnhance[i];
+  if(status == 1){
+    for(i=0,itemmes.len,i++){
+      text += itemEnhance[i];
+    }
+    cm.sendOk(text);
+    switch(selection){
+      case 0:
+        itemsel = 2434852 ;
+        itemstatus = 10 ;
+        break;
+      case 1:
+        itemsel = 2434853 ;
+        itemstatus = 15 ;
+        break;
+      case 2:
+        itemsel = 2434854 ;
+        itemstatus = 20 ;
+        break;
+      case 3:
+        itemsel = 2434855 ;
+        itemstatus = 30;
+        break;
+    }
   }
-  cm.sendOk(text);
-  break;
-  switch(selection){
-    case 0:
-     cm.sendGetNumber("請輸入使用數量","1","1","99");
+  
+  if(status == 2){
+    cm.sendGetNumber("請輸入你要使用的數量",1,1,999);
   }
+  
+  if(status ==3){
+    itemnum = selection ;
+    itemenh = cm.getInventory(1).getItem(1) ;//取得裝備欄第一個道具
+    itemid = itemenh.getItemId() ;
+    if(itemenh == null){
+      cm.sendOk("裝備第一格為空喔");
+      cm.dispose();
+    }else{
+      var toDrop = itemenh.copy();
+      toDrop.setStr(toDrop.getStr()+itemstatus*itemnum);
+      toDrop.setDex(toDrop.getDex()+itemstatus*itemnum);
+      toDrop.setInt(toDrop.getInt()+itemstatus*itemnum);
+      toDrop.setLuk(toDrop.getLuk()+itemstatus*itemnum);
+      cm.addByItem(toDrop);
+      cm.gainItem(itemsel,itemnum);
+      cm.gainItem(itemid,-1);
+      cm.sendOk("強化完成");
+      cm.dispose();
+    }
+  }
+  
 }
