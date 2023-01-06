@@ -1,0 +1,49 @@
+//萬能選單測試
+
+var pic1= ;
+var npcid ;
+var mes = "";
+var sel ;
+
+//[選單名稱,腳本]
+var commonlist =[
+["一鍵轉職","一鍵轉職"],
+["快速傳送","快速傳送"],
+["等級獎勵","等級獎勵"],
+["強化石","強化石"],
+["每日任務","每日任務"],
+["一鍵任務","一鍵任務"],
+];
+
+var status = -1 ;
+
+function start(){
+  action(1,0,0);
+  for(var i = 0,i < commonlist.lengh,i++){
+    mes += "#L" + i + "#" + commonlist[i] + "#l" ;
+    if(i%3 == 0){
+      mes += "\r\n" ;
+    }else{
+      mes += "  " ;
+    }
+  }
+}
+
+function action(mode,type,selection){
+  if(mode == 1){
+    status++;
+  }else{
+    cm.dispose();
+  }
+  if(status == 0){
+    cm.sendSimple(mes);
+  }
+  if(status == 1){
+    sel = selection;
+    cm.dispose();
+    cm.openNpc(npcid,commonlist[i][1])
+  }else{
+    cm.sendOk("出bug啦!");
+    cm.dispose();
+  }
+}
